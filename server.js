@@ -16,7 +16,8 @@ const app = express();
 const mongoose = require('mongoose');
 
 // My controllers 
-const peopleController = require('./controllers/people-controller')
+// const peopleController = require('./controllers/people-controller')
+const { breweries, people } = require('./controllers')
 
 // Cors and morgan
 const cors = require("cors");
@@ -42,7 +43,8 @@ app.use(express.json()); //parse json
 app.use(cors()); //We now pray to whatever higher power or God we have that this works
 app.use(morgan("dev"));
 
-app.use('/people', peopleController);
+app.use('/people', people);
+app.use('/breweries', breweries);
 
 ///////////////////////////////
 // ROUTES
